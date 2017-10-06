@@ -18,4 +18,4 @@ async def on_message(message):
   if message.content.startswith('!ding'):
     await client.send_message(message.channel, 'Dong!')
       
-client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLiH3g.yrJsXqNQMeP7g6kFGN_DFo-zlts')
+client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
