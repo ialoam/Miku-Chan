@@ -3,7 +3,7 @@ Miku Chan is a light Python Discord bot made to increase the speeds of your work
 
 ### Installation
 There are two ways to install our bot:
-> Use the link [here]() to visit the Discord Official Registration
+> Use the link [here](https://discordapp.com/oauth2/authorize?client_id=365649918142054410&scope=bot&permissions=0) to visit the Discord Official Registration
 
 or
 
