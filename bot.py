@@ -6,12 +6,12 @@ client = discord.Client()
 @client.event
 async def on_message(message):
   if messsage.content.startswith('!ping'):
-    await client.send_message(message.channel, 'Your expecting me to say **Pong!**, right?')
+    await client.send_message(message.channel, 'Your expecting me to say Pong!, right?')
     
 @client.event
 async def on_message(message):
   if message.content.startswith('!help'):
-    await client.send_messsage(message.channel, 'Commands are: **!help**, **!ping**, and **!ding**')
+    await client.send_messsage(message.channel, 'Commands are: !help, !ping, and !ding')
                               
 @client.event
 async def on_message(message):
