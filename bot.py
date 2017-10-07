@@ -12,12 +12,13 @@ async def on_ready():
 	print(client.user.name);
 	print(client.user.id);
 	print('-------');
-	await client.change_presence(game=discord.Game(name='Stufz. Do $help'))
+	await client.change_presence(game=discord.Game(name='Stufz. Do $help'));
+	print('Status Set.');
 
 @client.event
 async def on_message(message):
-  if message.content.startswith('$ping'):
-    await client.send_message(message.channel, "Your expecting me to say 'Pong!', aren't you?");
+	if message.content.startswith('$ping'):
+		await client.send_message(message.channel, "Your expecting me to say 'Pong!', aren't you?");
     
 @client.event
 async def on_message(message):
@@ -26,8 +27,8 @@ async def on_message(message):
 		
 @client.event
 async def on_message(message):
-  if message.content.startswith("$ding"):
-    await client.send_message(message.channel, "Dong!");
+	if message.content.startswith("$ding"):
+	await client.send_message(message.channel, "Dong!");
 	
 @client.event
 async def on_message(message):
@@ -44,9 +45,6 @@ async def on_message(message):
 			return
 			if role is None or role.name not in team_list:
 				await client.send_message(message.channel, "Well that's odd. It didn't work, contact a Helper or Dev.")
-			return
-			elif role in message.author.roles:
-				await client.send_message(message.channel, "You already have this role.")
 			else:
 			try:
 				await client.add_roles(message.author, role)
