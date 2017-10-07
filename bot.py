@@ -28,11 +28,5 @@ async def on_message(message):
 async def on_message(message):
   if message.content.startswith('$ding'):
     await client.send_message(message.channel, 'Dong!');
-      
-@client.event
-async def on_message(message):
-  if message.content.startswith('$banned'):
-    bans = await client.get_bans(server)
-    await client.send_message(message.channel, 'Banned People: ' + bans + '.')
 	
 client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
