@@ -3,7 +3,6 @@ import asyncio
 import aiohttp
 import websockets
 import PyNaCl
-import libffi-dev
 
 client = discord.Client()
 
