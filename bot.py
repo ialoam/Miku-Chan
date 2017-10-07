@@ -4,7 +4,7 @@ import aiohttp
 import websockets
 
 client = discord.Client()
-server = get_server(id)
+server = client.get_server(id)
 
 @client.event
 async def on_ready():
