@@ -12,7 +12,7 @@ async def on_ready():
 	print(client.user.name);
 	print(client.user.id);
 	print('-------');
-	await client.change_status(game='Stufz. Do $help', idle=False)
+	await client.change_presence(game='Stufz. Do $help', status=None, afk=False)
 
 @client.event
 async def on_message(message):
