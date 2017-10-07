@@ -23,6 +23,7 @@ async def on_message(message):
 async def on_message(message):
 	if message.content.startswith('$icup'):
 		await client.send_message(message.channel, 'Ha. ha. Very funny. (not)');
+		
 @client.event
 async def on_message(message):
   if message.content.startswith('$ding'):
