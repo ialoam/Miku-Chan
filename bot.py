@@ -5,7 +5,7 @@ import websockets
 import PyNaCl
 
 client = discord.Client()
-server = discord.Server(id='360089583758737408')
+server = get_server(id)
 
 @client.event
 async def on_ready():
@@ -33,7 +33,7 @@ async def on_message(message):
 @client.event
 async def on_message(message):
   if message.content.startswith('$banned'):
-	bans = await client.get_bans(server)
-	await client.send_message(message.channel, 'Banned People: ' + server)
+    bans = await client.get_bans(server)
+    await client.send_message(message.channel, 'Banned People: ' + bans)
 	
 client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
