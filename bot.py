@@ -46,10 +46,10 @@ async def on_message(message):
 			if role is None or role.name not in team_list:
 				await client.send_message(message.channel, "Well that's odd. It didn't work, contact a Helper or Dev.")
 			else:
-			try:
-				await client.add_roles(message.author, role)
-				await client.send_message(message.channel, "Successfully added role {0}".format(role.name))
-			except discord.Forbidden:
-				await client.send_message(message.channel, "Sorry, I need ***MANAGE_ROLES*** to do this.")
+				try:
+					await client.add_roles(message.author, role)
+					await client.send_message(message.channel, "Successfully added role {0}".format(role.name))
+				except discord.Forbidden:
+					await client.send_message(message.channel, "Sorry, I need ***MANAGE_ROLES*** to do this.")
 	
 client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
