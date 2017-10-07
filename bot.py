@@ -21,9 +21,8 @@ async def on_message(message):
     
 @client.event
 async def on_message(message):
-  if message.content.startswith('$help'):
-    await client.send_message(message.channel, 'The current commands are: $ping and $ding');
-                              
+	if message.content.startswith('$icup'):
+		await client.send_message(message.channel, 'Ha. ha. Very funny. (not)');
 @client.event
 async def on_message(message):
   if message.content.startswith('$ding'):
