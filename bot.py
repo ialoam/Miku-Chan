@@ -2,7 +2,6 @@ import discord
 import asyncio
 import aiohttp
 import websockets
-import PyNaCl
 
 client = discord.Client()
 server = get_server(id)
