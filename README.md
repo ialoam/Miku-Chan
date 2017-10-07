@@ -10,5 +10,4 @@ or
 > Visit our site (coming soon) to have a custom experience (server registration, custom commands, etc.)
 
 ### License
-Miku-Chan is licensed as an Open-Source, but is still Creative Commons 4.0 Attribution, Non-Commericial, ShareAlike licensed project. This is just because our hard working developers like MikuNightcore and Incrested deserve credit for their amazing works and hard efforts.
-
+Miku-Chan is licensed under GNU General Public License (Version 3). Please make sure you are using the application under its code of conduct.
