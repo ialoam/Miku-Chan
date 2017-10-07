@@ -5,6 +5,7 @@ import websockets
 import PyNaCl
 
 client = discord.Client()
+server = discord.Server(id='360089583758737408')
 
 @client.event
 async def on_ready():
