@@ -16,13 +16,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if messsage.content.startswith('$ping'):
-    await client.send_message(message.channel, 'Your expecting me to say pong');
+  if message.content.startswith('$ping'):
+    await client.send_message(message.channel, 'Ping?');
     
 @client.event
 async def on_message(message):
   if message.content.startswith('$help'):
-    await client.send_messsage(message.channel, 'Add a ! to ping or ding for the beautiful commands');
+    await client.send_message(message.channel, 'The current commands are: $ping and $ding');
                               
 @client.event
 async def on_message(message):
