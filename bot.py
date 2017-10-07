@@ -28,7 +28,7 @@ async def on_message(message):
 @client.event
 async def on_message(message):
 	if message.content.startswith("$ding"):
-	await client.send_message(message.channel, "Dong!");
+		await client.send_message(message.channel, "Dong!");
 	
 @client.event
 async def on_message(message):
