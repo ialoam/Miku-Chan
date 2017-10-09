@@ -1,5 +1,5 @@
 # Miku-Chan
-Miku Chan is a light Python Discord bot made to increase the speeds of your workflow and autonomy. Using the power of The Clean Web and other sponsers, we're able to deliver a fast and brilliant experience to all.
+Miku Chan is a light Discord bot based off of Python made to increase the speed of your workflow and maximize autonomy. By using the power of The Clean Web and other sponsors, we're able to deliver a fast and brilliant experience to all.
 
 ### Installation
 There are two ways to install our bot:
