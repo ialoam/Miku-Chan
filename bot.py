@@ -8,7 +8,7 @@ server = client.get_server(id)
 
 @client.event
 async def on_ready():
-	print('Logged in as: ' + client.user.name + '(' + client.user.id + ')'
+	print('Logged in as: ' + client.user.name + '(' + client.user.id + ')')
 	print('-------')
 	await client.change_presence(game=discord.Game(name='Stufz. Do $help'))
 	print('Status Set.')
