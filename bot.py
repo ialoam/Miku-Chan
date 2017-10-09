@@ -17,16 +17,19 @@ async def on_ready():
 async def on_message(message):
 	if message.content.startswith("$ping"):
 		await client.send_message(message.channel, "Your expecting me to say ***Pong!***, aren't you?")
-    
+    return
+	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$icup"):
 		await client.send_message(message.channel, "Ha. ha. Very funny. ***(not)***")
-		
+	return	
+	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$ding"):
 		await client.send_message(message.channel, "Dong!")
+	return
 	
 @client.event
 async def on_message(message):
@@ -49,5 +52,7 @@ async def on_message(message):
 					await client.send_message(message.channel, "Success! Your now a {0}".format(role.name))
 				except discord.Forbidden:
 					await client.send_message(message.channel, "Sorry, I need ***MANAGE_ROLES*** to do this.")
-	
+			return
+		return
+	return
 client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
