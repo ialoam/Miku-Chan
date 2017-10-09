@@ -35,7 +35,7 @@ async def on_message(message):
 		entered_team = message.content[6:].lower()
 		role = discord.utils.get(message.server.roles, name=entered_team)
 		roles = [
-			"366256516220583937",
+			"366256516220583937"
 		]
 		for r in message.author.roles:
 			if r.id in roles:
