@@ -10,9 +10,13 @@ server = client.get_server(id)
 async def on_ready():
 	print('Logged in as: ' + client.user.name + '(' + client.user.id + ')')
 	print('-------')
-	await client.change_presence(game=discord.Game(name='Stufz. Do $help'))
+	
+@client.event
+async def wait_until_login():
+	await client.change_presence(game=discord.Game(name="Stufz. Do $help"))
 	print('Status Set.')
-
+	
+	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$ping"):
