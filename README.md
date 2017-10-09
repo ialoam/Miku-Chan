@@ -9,5 +9,13 @@ or
 
 > Visit our site (coming soon) to have a custom experience (server registration, custom commands, etc.)
 
+### Support
+There are two support methods:
+> Use the link [here](https://discord.gg/MaK7BtW) to join Miku's Cave on Discord and ask the [@]Helpers for help in [#]support.
+
+or
+
+> Visit our Issues page [here](https://github.com/Incrested/Miku-Chan/issues/new) to post an issue for us to fix and resolve ASAP.
+
 ### License
 Miku-Chan is licensed under GNU General Public License (Version 3). Please make sure you are using the application under its code of conduct.
