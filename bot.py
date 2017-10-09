@@ -16,24 +16,23 @@ async def wait_until_login():
 	await client.change_presence(game=discord.Game(name="Stufz. Do $help"))
 	print('Status Set.')
 	
-	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$ping"):
 		await client.send_message(message.channel, "Your expecting me to say ***Pong!***, aren't you?")
-		return
+		break
 	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$icup"):
 		await client.send_message(message.channel, "Ha. ha. Very funny. ***(not)***")
-		return	
+		break
 	
 @client.event
 async def on_message(message):
 	if message.content.startswith("$ding"):
 		await client.send_message(message.channel, "Dong!")
-		return
+		break
 	
 @client.event
 async def on_message(message):
@@ -47,7 +46,7 @@ async def on_message(message):
 		for r in message.author.roles:
 			if r.id in roles:
 				await client.send_message(message.channel, "You already have the role.")
-				return
+				break
 			if role is None or role.name not in team_list:
 				await client.send_message(message.channel, "Welp! That didn't work, contact a Helper or Dev.")
 			else:
@@ -56,7 +55,7 @@ async def on_message(message):
 					await client.send_message(message.channel, "Success! Your now a {0}".format(role.name))
 				except discord.Forbidden:
 					await client.send_message(message.channel, "Sorry, I need ***MANAGE_ROLES*** to do this.")
-					return
-				return
-		return
+				break
+		break
+
 client.run('MzY1NjQ5OTE4MTQyMDU0NDEw.DLkWlw.bANvZcyQXhYWXvxg5pvHBflAuss')
