@@ -1,21 +1,29 @@
 # Miku-Chan
-Miku Chan is a light Discord bot based off of Python made to increase the speed of your workflow and maximize autonomy. By using the power of The Clean Web and other sponsors, we're able to deliver a fast and brilliant experience to all.
 
-### Installation
-There are two ways to install our bot:
-> Use the link [here](https://discordapp.com/oauth2/authorize?client_id=365649918142054410&scope=bot&permissions=66321471&response_type=code&redirect_uri=https://github.com/Incrested/Miku-Chan) to visit the Discord Official Registration
+Miku-Chan is an advanced Discord bot that uses Node.JS to simplify running your Discord server and to maximize your workflow speed. By using the power of The Clean Web and other sponsors, we're able to deliver a fast and brilliant experience to all.
 
-or
+## Installing
+For an installation guide, visit the (LICENSE.md)[LICENSE.md] file.
 
-> Visit our site (coming soon) to have a custom experience (server registration, custom commands, etc.)
+## Versioning
 
-### Support
-There are two support methods:
-> Use the link [here](https://discord.gg/MaK7BtW) to join Miku's Cave on Discord and ask the [@]Helpers for help in [#]support.
+For the versions available, see the [tags on this repository](https://github.com/Incrested/Miku-Chan/tags).
 
-or
+## Authors
 
-> Visit our Issues page [here](https://github.com/Incrested/Miku-Chan/issues/new) to post an issue for us to fix and resolve ASAP.
+* **Matthew R.** - *Co-Creator & Scripting* - [Incrested](https://github.com/Incrested)
+* **Lucas** - *Scripting* - [ultraMLGCode](https://github.com/ultraMLGCode)
+* **Daniel** - *Scripting & Testing* - [d-nni3l](https://github.com/d-nni3l)
 
-### License
-Miku-Chan is licensed under GNU General Public License (Version 3). Please make sure you are using the application under its code of conduct.
+See also the list of [contributors](https://github.com/Incrested/Miku-Chan/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the GNU General Public License (Version 3) - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Logo - Kaili ~ ()[]
+* Idea/Commands - Miku ~ (MikuNightcore)[https://www.youtube.com/channel/UCP24uZONAwQwtfCiqG_Ittg]
+* Partial Ideas - That's Pretty Weird ~ (@DasPurtyWeird)[https://twitter.com/DasPurtyWeird]
+* Music Bot - NitroBot (scripting) ~ (Nitro)[http://nitro.ws]
