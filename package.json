@@ -4,10 +4,7 @@
   "description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
   "main": "bot.js",
   "dependencies": {
-    "discord.py": "0.16.12",
-	"aiohttp": "2.2.5",
-	"websockets": "3.4",
-	"chardet": "3.0.4",
+    "discord.js": "0.16.12",
   },
   "scripts": {
     "start": "node bot.js"
