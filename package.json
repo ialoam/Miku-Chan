@@ -13,10 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/Incrested/Miku-Chan.git"
   },
-  "keywords": {
-    "discord",
-    "Discord"
-  },
   "author": "Incrested & MikuNightcore"
   "license": "GNU-GPL3",
   "bugs": {
