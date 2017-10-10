@@ -2,8 +2,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 client.on('ready', () => {
-	console.log('Logged in as ${client.user.tag}!');
-	bot.user.setPresence({status: 'online', game: { name: 'Stufz. Do $cmds'} });
+	console.log('Logged in as Miku-Chan!');
+	bot.user.setPresence({status: 'online', game: {name: 'Stufz. Do $cmds'} });
+	console.log('Presence Changed.');
+	console.log('-------');
 	
 });
 
