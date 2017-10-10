@@ -33,6 +33,8 @@ client.on('message', msg => {
 	}
 });
 
-
+client.on('message', msg => {
+	if (msg.content === '$fetchrole') {
+		bot.on('guildMemeberAdd',(member) => { member.addRole("366256286922178560").catch(console.error); });
 
 client.login('token');
