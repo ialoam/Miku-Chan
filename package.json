@@ -1,8 +1,8 @@
 {
   "name": "Miku-Chan",
   "version": "0.0.10",
-  "description": "A Python-Based Discord Bot Made to Increase your Workflow and Autonomy",
-  "main": "bot.py",
+  "description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
+  "main": "bot.js",
   "dependencies": {
     "discord.py": "0.16.12",
 	"aiohttp": "2.2.5",
@@ -10,7 +10,7 @@
 	"chardet": "3.0.4",
   },
   "scripts": {
-    "start": "node bot.py"
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
