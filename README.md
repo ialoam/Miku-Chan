@@ -3,7 +3,7 @@
 Miku-Chan is an advanced Discord bot that uses Node.JS to simplify running your Discord server and to maximize your workflow speed. By using the power of The Clean Web and other sponsors, we're able to deliver a fast and brilliant experience to all.
 
 ## Installing
-For an installation guide, visit the (LICENSE.md)[LICENSE.md] file.
+For an installation guide, visit the (LICENSE.md)[https://github.com/Incrested/Miku-Chan/blob/master/INSTALL.md] file.
 
 ## Versioning
 
@@ -19,7 +19,7 @@ See also the list of [contributors](https://github.com/Incrested/Miku-Chan/contr
 
 ## License
 
-This project is licensed under the GNU General Public License (Version 3) - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License (Version 3) - see the [LICENSE.md](https://github.com/Incrested/Miku-Chan/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
