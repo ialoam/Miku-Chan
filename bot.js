@@ -51,7 +51,7 @@ lient.on('message', msg => {
 });
 
 client.on('message', msg => {
-	if (msg.content === '$about') {
+	if (msg.content === '$about' {
 		console.log(message.member + 'has prompted for $about.');
 		message.channel.send({embed: {
 			color: 3447003,
