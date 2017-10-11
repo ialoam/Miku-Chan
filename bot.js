@@ -81,6 +81,7 @@ client.on('message', msg => {
 				text: "Miku-Chan"
 			}
 		}
+		}
 	}
 });
 
