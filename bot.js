@@ -74,11 +74,12 @@ client.on('message', msg => {
 				name: "Acknowledgments",
 				value: "We love to acknowledge the people who worked on this. So, check the source code above and visit the README.md file."
 			}
-		],
-		timestamp: new Date(),
-		footer: {
-			icon_url: client.user.avatarURL,
-			text: "Miku-Chan"
+			],
+			timestamp: new Date(),
+			footer: {
+				icon_url: client.user.avatarURL,
+				text: "Miku-Chan"
+			}
 		}
 	}
 });
