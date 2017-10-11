@@ -1,8 +1,8 @@
-Getting Started
+<h1>Getting Started</h1>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Prerequisites
+<h1>Prerequisites</h1>
 
 To run Miku-Chan on a local system, you need to have the following dependencies on your system.
 
@@ -12,7 +12,7 @@ To run Miku-Chan on a local system, you need to have the following dependencies 
 
 (Note: It is also recommended to have a Discord bot account to attach to.)
 
-Installing
+<h1>Installing</h1>
 
 A step by step series of examples that tell you have to get a development environment running
 
