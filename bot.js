@@ -50,4 +50,37 @@ lient.on('message', msg => {
 	}
 });
 
+client.on('message', msg => {
+	if (msg.content === '$about') {
+		console.log(message.member + 'has prompted for $about.');
+		message.channel.send({embed: {
+			color: 3447003,
+			author: {
+				name: client.user.username,
+				icon_url: client.user.avatarURL
+			},
+			title: "Miku-Chan",
+			url: "http://mikuchan.me",
+			description: "Miku-Chan is a Discord.JS Discord bot made to increase the autonomy of your server.",
+			fields: [{
+				name: "Some Commands",
+				value: "You can put the prefix (which is $) in front of ping, ding, fetchrole, and cmds for some commands."
+			},
+			{
+				name: "Source Code",
+				value: "Since Miku-Chan is open-source, you can check the source [here](http://github.com/Incrested/Miku-Chan)."
+			},
+			{
+				name: "Acknowledgments",
+				value: "We love to acknowledge the people who worked on this. So, check the source code above and visit the README.md file."
+			}
+		],
+		timestamp: new Date(),
+		footer: {
+			icon_url: client.user.avatarURL,
+			text: "Miku-Chan"
+		}
+	}
+});
+
 client.login('token');
