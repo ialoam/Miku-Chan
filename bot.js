@@ -35,7 +35,7 @@ client.on('message', msg => {
 
 lient.on('message', msg => {
 	if (msg.content === '$fetchrole') {
-		if(msg.member.roles.has("366256286922178560")) {
+		if(msg.member.roles.has('366256286922178560')) {
 			msg.reply('Sorry, you already have the needed rank.');
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
