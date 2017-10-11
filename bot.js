@@ -33,14 +33,14 @@ client.on('message', msg => {
 	}
 });
 
-lient.on('message', msg => {
+client.on('message', msg => {
 	if (msg.content === '$fetchrole') {
 		if(msg.member.roles.has('366256286922178560')) {
 			msg.reply('Sorry, you already have the needed rank.');
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
 			msg.reply('Fine. Take your stupid role.');
-		} else if Discord.Forbidden {
+		} if (Discord.Forbidden) {
 			msg.reply('Sorry. I need ***MANAGE_GUILDS*** to do this.');
 		}
 	}
