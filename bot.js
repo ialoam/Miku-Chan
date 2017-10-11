@@ -75,7 +75,7 @@ client.on('message', msg => {
 				icon_url: client.user.avatarURL,
 				text: "Miku-Chan"
 			}
-		}})
+		}});
 	}
 	
 });
