@@ -5,6 +5,7 @@ These instructions will get you a copy of the project up and running on your loc
 Prerequisites
 
 To run Miku-Chan on a local system, you need to have the following dependencies on your system.
+
 [Node.JS](https://nodejs.org/)
 [Discord.js](https://discord.js.org/)
 
