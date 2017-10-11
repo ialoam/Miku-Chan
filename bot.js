@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
-	client.user.setPresence({ game:'Stufz. Do $cmds' });
+	client.user.setGame('Stufz. Do $cmds') });
 	console.log('Presence Changed.');
 	console.log('-------');
 	
