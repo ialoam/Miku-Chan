@@ -23,9 +23,9 @@ git clone https://github.com/Incrested/Miku-Chan.git
 
 * Edit *bot.js* and change `token` to your secret token.
 
-client.login('token');
+`client.login('token');`
 
 
 * Save, then start the bot.
 
-node bot.js
+`node bot.js`
