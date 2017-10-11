@@ -14,12 +14,6 @@ To run Miku-Chan on a local system, you need to have the following dependencies 
 
 <h1>Installing</h1>
 
-<h3>Inviting Miku-Chan</h3>
-
-[Click here](https://discordapp.com/oauth2/authorize?client_id=365649918142054410&scope=bot&permissions=66321471&response_type=code&redirect_uri=https://github.com/Incrested/Miku-Chan) to invite Miku-Chan to your server!
-
-<h3>Running Miku-Chan Yourself</h3>
-
 A step by step series of examples that tell you have to get a development environment running
 
 `cd` into the folder you want to run Miku-Chan from
