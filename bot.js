@@ -40,7 +40,7 @@ lient.on('message', msg => {
 			console.log(message.member + 'was not given a role. Reason: Already Have It');
 			msg.reply('Sorry, you already have the needed rank.');
 		} else {
-			console.log(message.member + "was given a role.);
+			console.log(message.member + 'was given a role.');
 			member.addRole('366256286922178560').catch(console.error);
 			msg.reply('Fine. Take your stupid role.');
 		} else if discord.Forbidden {
