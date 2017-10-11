@@ -35,16 +35,12 @@ client.on('message', msg => {
 
 lient.on('message', msg => {
 	if (msg.content === '$fetchrole') {
-		console.log(message.member + 'has prompted for a role');
 		if(message.member.roles.has("366256286922178560")) {
-			console.log(message.member + 'was not given a role. Reason: Already Have It');
 			msg.reply('Sorry, you already have the needed rank.');
 		} else {
-			console.log(message.member + 'was given a role.');
 			member.addRole('366256286922178560').catch(console.error);
 			msg.reply('Fine. Take your stupid role.');
 		} else if discord.Forbidden {
-			console.log(message.member + 'was not given a role. Reason: Not Enough Privilages');
 			msg.reply('Sorry. I need ***MANAGE_GUILDS*** to do this.');
 		}
 	}
@@ -52,7 +48,6 @@ lient.on('message', msg => {
 
 client.on('message', msg => {
 	if (msg.content === '$about') {
-		console.log(message.member + 'has prompted for $about.');
 		message.channel.send({embed: {
 			color: 3447003,
 			author: {
