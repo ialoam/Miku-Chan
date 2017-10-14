@@ -1,0 +1,21 @@
+Logos Needed (Simple):
+```
+None. Quotas Filled.
+```
+Pictures Needed:
+```
+Drawing of Matt and Lucas (in progress; ready by sunday)
+```
+Actions Needed:
+```
+Email Hosting - Covered by Yandex (setup; needs cf delegate)
+Web Hosting - Covered by GitHub (setup; needs cf delgate)
+Blog Hosting - Covered by Medium (ready; needs cf delegate; dm back username)
+```
+
+
+```
+Domain: mail.mikuchan.me
+Login: lucas@mikuchan.me (or lucas@tmc.yaconnect.com)
+Password: ##FuckingGooodPassword6912
+```
