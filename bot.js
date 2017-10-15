@@ -40,7 +40,7 @@ client.on('message', msg => {
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
 			msg.reply('Fine. Take your stupid role.');
-		} else (Discord.Forbidden) {
+		} if (Discord.Forbidden) {
 			msg.reply('Sorry. I need ***MANAGE_GUILDS*** to do this.');
 		}
 	}
