@@ -1,0 +1,11 @@
+# HTML files (for website)
+*.html
+*.php
+*.xml
+*.css
+*.svg
+*.eot
+*.ttf
+*.woff
+*.woff2
+CNAME
