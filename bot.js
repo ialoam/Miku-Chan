@@ -1,5 +1,23 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const music = require("discord.js-music");
+/* npm install discord.js-music */
+
+/*
+ * Initialize the music plugin.
+ *
+ * @param client The Discord.js client.
+ * @param options (Optional) A set of options to use:
+ *                prefix: The prefix to use for the command (default '!').
+ *                global: Whether to use the same queue for all servers
+ *                        instead of server-specific queues (default false).
+ *                maxQueueSize: The maximum queue size (default 20).
+ */
+music(client, {
+	prefix: '$',     // Prefix of '$'.
+	global: false,   // Server-specific queues (DO NOT CHANGE).
+	maxQueueSize: 10 // Maximum queue size of 10 (For low load on Heroku).
+});
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
