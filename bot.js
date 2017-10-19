@@ -1,23 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const music = require("discord.js-music");
-/* npm install discord.js-music */
-
-/*
- * Initialize the music plugin.
- *
- * @param client The Discord.js client.
- * @param options (Optional) A set of options to use:
- *                prefix: The prefix to use for the command (default '!').
- *                global: Whether to use the same queue for all servers
- *                        instead of server-specific queues (default false).
- *                maxQueueSize: The maximum queue size (default 20).
- */
-music(client, {
-	prefix: '$',     // Prefix of '$'.
-	global: false,   // Server-specific queues (DO NOT CHANGE).
-	maxQueueSize: 10 // Maximum queue size of 10 (For low load on Heroku).
-});
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -97,5 +79,22 @@ client.on('message', msg => {
 	}
 	
 });
+
+client.on('message', msg => {
+	if (!msg.guild) return;
+	
+	if (msg.content === '$join') {
+		msg.member.voiceChannel.join {
+			if (msg.member.voiceChannel.join() {
+				.then(connection => {
+					msg.reply('I have successfully joined the channel.');
+				})
+				.catch(console.log);
+			} else {
+				message.reply('You need to join a voice channel first, silly.');
+			}
+		}
+	 }
+});			
 
 client.login('token');
