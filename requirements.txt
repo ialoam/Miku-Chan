@@ -1,1 +1,6 @@
 discord.js
+opusscript
+ytdl-core
+ffmpeg
+ffmpeg-binaries
+node-opus
