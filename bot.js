@@ -1,17 +1,21 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const { ShardingManager } = require("discord.js");
+const manager = new ShardingManager('${__dirname}/bot.js', { totalShards: 3});
+const dispatcher = connection.playArbitraryInput('http://s37.myradiostream.com:9902/listen.pls');
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
 	client.user.setGame('Stufz. Do $cmds');
 	console.log('Presence Changed.');
 	console.log('-------');
-	
+	manager.spawn();
+	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 });
 
 client.on('message', msg => {
 	if (msg.content === '$ping') {
-		msg.reply('No pinging.');
+		msg.reply('Your expecting me to say Pong, right?');
 	}
 });
 
@@ -40,8 +44,6 @@ client.on('message', msg => {
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
 			msg.reply('Fine. Take your stupid role.');
-		} if (Discord.Forbidden) {
-			msg.reply('Sorry. I need ***MANAGE_GUILDS*** to do this.');
 		}
 	}
 });
@@ -84,17 +86,39 @@ client.on('message', msg => {
 	if (!msg.guild) return;
 	
 	if (msg.content === '$join') {
-		msg.member.voiceChannel.join {
-			if (msg.member.voiceChannel.join() {
+		if (msg.member.voiceChannel) {
+			msg.member.voiceChannel.join()
 				.then(connection => {
-					msg.reply('I have successfully joined the channel.');
+					msg.reply('I\'ve connected successfully. Use $radio or $play (url) to make me sing.');
 				})
 				.catch(console.log);
-			} else {
-				message.reply('You need to join a voice channel first, silly.');
-			}
+		} else {
+			msg.reply('You need to join a Voice channel first, silly.');
 		}
-	 }
-});			
+	}
+});
+
+
+dispatcher.on('end', () => {
+	msg.reply('I guess it\'s over?');
+});
+
+dispatcher.on('error', e => {
+	msg.reply('Ummm.. That\'s not supposed to happen.');
+});
+
+client.on('message', msg => {
+	if (msg.content === '$radio') {
+		if (msg.member.voiceChannel) {
+			dispatcher.play();
+		} else {
+			msg.reply('Uh.. That\'s not supposed to happen');
+		}
+	}
+});
+
+client.on('message', msg => {
+	if (msg.content === '$stop') {
+		voiceChannel.leave();
 
 client.login('token');
