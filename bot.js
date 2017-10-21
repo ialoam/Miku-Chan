@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 const { ShardingManager } = require("discord.js");
 const fs = require("fs");
+const config = require("./config.json");
 const client = new Discord.Client();
 const manager = new ShardingManager('bot.js', { totalShards: 3});
 const prefix = config.prefix
 const args = message.content.sllice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
-const config = require("./config.json");
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
