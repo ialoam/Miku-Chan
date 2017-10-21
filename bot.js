@@ -105,4 +105,14 @@ switch(command) {
 			},
 		});
 		break;
+};
+
+dispatcher.on('end', () => {
+	msg.reply('I guess it\'s over?');
+});
+
+dispatcher.on('error', e => {
+	msg.reply('Ummm.. That\'s not supposed to happen.');
+});
+		
 client.login('token');
