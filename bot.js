@@ -97,7 +97,7 @@ switch(command) {
 			title: "Your Search",
 			url: "https://www.google.com/search?q=${query}",
 			description: "Look at your Search Query via Google.",
-			timestamp: new Date();
+			timestamp: new Date(),
 			footer: {
 				icon_url: client.user.avatarURL,
 				text: "Powered by Google"
