@@ -4,6 +4,7 @@ const { ShardingManager } = require("discord.js");
 const manager = new ShardingManager('${__dirname}/bot.js', { totalShards: 3});
 const dispatcher = connection.playArbitraryInput('http://s37.myradiostream.com:9902/listen.pls');
 const command = args.shift().toLowerCase;
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -15,19 +16,19 @@ client.on('ready', () => {
 });
 
 switch(command) {
-	case "ping":
+	case "$ping":
 		msg.reply('Your expecting me to say Pong, right?');
 	break;
-	case "ding":
+	case "$ding":
 		msg.reply('Dong!');
 	break;
-	case "cmds":
+	case "$cmds":
 		msg.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me');
 		break;
-	case "icup":
+	case "$icup":
 		msg.reply('Ha ha. Very funny. ***(not)***.');
 		break;
-	case "fetchrole":
+	case "$fetchrole":
 		if(msg.member.roles.has('366256286922178560')) {
 			msg.reply('Sorry, you already have the needed rank.');
 		} else {
@@ -35,7 +36,7 @@ switch(command) {
 			msg.reply('Fine. Take your stupid role.');
 		}
 		break;
-	case "about":
+	case "$about":
 		if (msg.content === '$about') {
 			msg.channel.send({embed: {
 				color: 3447003,
@@ -67,7 +68,7 @@ switch(command) {
 			}});
 		}
 		break;
-	case "join":
+	case "$join":
 		if (!msg.guild) return;
 		if (msg.member.voiceChannel) {
 			msg.member.voiceChannel.join()
@@ -80,14 +81,28 @@ switch(command) {
 		}
 		}
 		break;
-	case "radio":
+	case "$radio":
 		if (msg.member.voiceChannel) {
 			dispatcher.play();
 		} else {
 			msg.reply('Uh.. That\'s not supposed to happen');
 		}
 		break;
-	case "stop":
+	case "$stop":
 		voiceChannel.leave();
+		break;
+	case "$google":
+		let query = args[0];
+		msg.reply(embed: {
+			color: 3447003,
+			title: "Your Search",
+			url: "https://www.google.com/search?q=${query}",
+			description: "Look at your Search Query via Google.",
+			timestamp: new Date();
+			footer: {
+				icon_url: client.user.avatarURL,
+				text: "Powered by Google"
+			},
+		});
 		break;
 client.login('token');
