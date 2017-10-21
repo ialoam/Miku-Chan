@@ -5,7 +5,7 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const manager = new ShardingManager('bot.js', { totalShards: 3 });
 const prefix = config.prefix
-const args = message.content.sllice(prefix.length).trim().split(/ +/g);
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
 client.on('ready', () => {
