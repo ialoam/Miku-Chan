@@ -1,6 +1,6 @@
 {
   "name": "Miku-Chan",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
   "main": "bot.js",
   "dependencies": {
