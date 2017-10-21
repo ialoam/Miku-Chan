@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const { ShardingManager } = require("discord.js");
 const fs = require("fs");
-const config = require("config.json");
+const config = require("./config.json");
 const client = new Discord.Client();
-const manager = new ShardingManager('bot.js', { totalShards: 3});
+const manager = new ShardingManager('bot.js', { totalShards: 3 });
 const prefix = config.prefix
 const args = message.content.sllice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
@@ -18,6 +18,9 @@ client.on('ready', () => {
 });
 
 switch(command) {
+	
+	if(!message.content.startsWith(prefix) || message.author.bot) return;
+	
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
