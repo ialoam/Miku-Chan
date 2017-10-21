@@ -92,7 +92,7 @@ switch(command) {
 		break;
 	case "$google":
 		let query = args[0];
-		msg.reply(embed: {
+		msg.reply({embed: {
 			color: 3447003,
 			title: "Your Search",
 			url: "https://www.google.com/search?q=${query}",
@@ -102,7 +102,7 @@ switch(command) {
 				icon_url: client.user.avatarURL,
 				text: "Powered by Google"
 			},
-		});
+		}});
 		break;
 };
 
