@@ -83,13 +83,14 @@ switch(command) {
 		break;
 	case "$radio":
 		if (msg.member.voiceChannel) {
-			dispatcher.play();
+			// Add Radio Feature
 		} else {
 			msg.reply('Uh.. That\'s not supposed to happen');
 		}
 		break;
 	case "$stop":
-		voiceChannel.leave();
+		// Add Stoping Feature
+		// Add Voice Leaving Feature
 		break;
 	case "$google":
 		let query = args[0];
@@ -105,6 +106,13 @@ switch(command) {
 			},
 		}});
 		break;
+	case "$logs":
+		if(!TextChannel.topic === "logs-miku" {
+			msg.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
+		} else {
+			msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
+		}
+		break;	
 };
 
 dispatcher.on('end', () => {
