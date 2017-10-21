@@ -107,7 +107,7 @@ switch(command) {
 		}});
 		break;
 	case "$logs":
-		if(!TextChannel.topic === "logs-miku" {
+		if(!TextChannel.topic === "logs-miku" => {
 			msg.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
 		} else {
 			msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
