@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const { ShardingManager } = require("discord.js");
+const fs = require("fs");
+const client = new Discord.Client();
 const manager = new ShardingManager('bot.js', { totalShards: 3});
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase;
+const prefix = config.prefix
+const args = message.content.sllice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
 const config = require("./config.json");
 
 client.on('ready', () => {
@@ -16,23 +18,23 @@ client.on('ready', () => {
 });
 
 switch(command) {
-	case "$setprefix":
+	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
 		fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
-	case "$ping":
+	case "ping":
 		message.reply('Your expecting me to say Pong, right?');
 	break;
-	case "$ding":
+	case "ding":
 		message.reply('Dong!');
 	break;
-	case "$cmds":
+	case "cmds":
 		message.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me');
 		break;
-	case "$icup":
+	case "icup":
 		message.reply('Ha ha. Very funny. ***(not)***.');
 		break;
-	case "$fetchrole":
+	case "fetchrole":
 		if(msg.member.roles.has('366256286922178560')) {
 			message.reply('Sorry, you already have the needed rank.');
 		} else {
@@ -40,7 +42,7 @@ switch(command) {
 			message.reply('Fine. Take your stupid role.');
 		}
 		break;
-	case "$about":
+	case "about":
 		if (message.content === '$about') {
 			message.channel.send({embed: {
 				color: 3447003,
@@ -72,7 +74,7 @@ switch(command) {
 			}});
 		}
 		break;
-	case "$join":
+	case "join":
 		if (!message.guild) return;
 		if (message.member.voiceChannel) {
 			message.member.voiceChannel.join()
@@ -84,18 +86,18 @@ switch(command) {
 			message.reply('You need to join a Voice channel first, silly.');
 		}
 		break;
-	case "$radio":
+	case "radio":
 		if (message.member.voiceChannel) {
 			// Add Radio Feature
 		} else {
 			message.reply('Uh.. That\'s not supposed to happen');
 		}
 		break;
-	case "$stop":
+	case "stop":
 		// Add Stoping Feature
 		// Add Voice Leaving Feature
 		break;
-	case "$google":
+	case "google":
 		let query = args[0];
 		message.reply({embed: {
 			color: 3447003,
@@ -109,7 +111,7 @@ switch(command) {
 			},
 		}});
 		break;
-	case "$logs":
+	case "logs":
 		// Add Identifier for the msg's channel topic
 		// if(message.TextChannel.topic === "logs-miku" => {
 		//	message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
