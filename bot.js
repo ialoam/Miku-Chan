@@ -4,6 +4,7 @@ const { ShardingManager } = require("discord.js");
 const manager = new ShardingManager('bot.js', { totalShards: 3});
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase;
+const config = require("./config.json");
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -15,6 +16,10 @@ client.on('ready', () => {
 });
 
 switch(command) {
+	case "$setprefix":
+		let newPrefix = message.content.split(" ").slice(1, 2)[0];
+		config.prefix = newPrefix;
+		fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
 	case "$ping":
 		message.reply('Your expecting me to say Pong, right?');
 	break;
@@ -109,9 +114,9 @@ switch(command) {
 		// if(message.TextChannel.topic === "logs-miku" => {
 		//	message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
 		// } else {		
-		//	message.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
+		//	message.reply('You\'ll need to set the topic to this channel to: ***_`` logs-miku ```_*** for this to work.');
 		// }
 		break;
 };
 		
-client.login('token');
+client.login(config.token);
