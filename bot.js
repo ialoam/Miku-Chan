@@ -1,9 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { ShardingManager } = require("discord.js");
-const connection = require("ffmpeg");
 const manager = new ShardingManager('bot.js', { totalShards: 3});
-const dispatcher = connection.playArbitraryInput('http://s37.myradiostream.com:9902/listen.pls');
 const command = args.shift().toLowerCase;
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
@@ -107,21 +105,13 @@ switch(command) {
 		}});
 		break;
 	case "$logs":
-		if(TextChannel.topic === "logs-miku" => {
-			msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
-		} else {
-			msg.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
-			msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
-		}
-		break;	
+		// Add Identifier for the msg's channel topic
+		// if(TextChannel.topic === "logs-miku" => {
+		//	msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
+		// } else {		
+		//	msg.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
+		// }
+		break;
 };
-
-dispatcher.on('end', () => {
-	msg.reply('I guess it\'s over?');
-});
-
-dispatcher.on('error', e => {
-	msg.reply('Ummm.. That\'s not supposed to happen.');
-});
 		
 client.login('token');
