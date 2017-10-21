@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const { ShardingManager } = require("discord.js");
 const manager = new ShardingManager('bot.js', { totalShards: 3});
-const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase;
 
 client.on('ready', () => {
@@ -16,28 +16,28 @@ client.on('ready', () => {
 
 switch(command) {
 	case "$ping":
-		msg.reply('Your expecting me to say Pong, right?');
+		message.reply('Your expecting me to say Pong, right?');
 	break;
 	case "$ding":
-		msg.reply('Dong!');
+		message.reply('Dong!');
 	break;
 	case "$cmds":
-		msg.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me');
+		message.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me');
 		break;
 	case "$icup":
-		msg.reply('Ha ha. Very funny. ***(not)***.');
+		message.reply('Ha ha. Very funny. ***(not)***.');
 		break;
 	case "$fetchrole":
 		if(msg.member.roles.has('366256286922178560')) {
-			msg.reply('Sorry, you already have the needed rank.');
+			message.reply('Sorry, you already have the needed rank.');
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
-			msg.reply('Fine. Take your stupid role.');
+			message.reply('Fine. Take your stupid role.');
 		}
 		break;
 	case "$about":
-		if (msg.content === '$about') {
-			msg.channel.send({embed: {
+		if (message.content === '$about') {
+			message.channel.send({embed: {
 				color: 3447003,
 				author: {
 					name: client.user.username,
@@ -68,22 +68,22 @@ switch(command) {
 		}
 		break;
 	case "$join":
-		if (!msg.guild) return;
-		if (msg.member.voiceChannel) {
-			msg.member.voiceChannel.join()
+		if (!message.guild) return;
+		if (message.member.voiceChannel) {
+			message.member.voiceChannel.join()
 				.then(connection => {
-					msg.reply('I\'ve connected successfully. Use $radio or $play (url) to make me sing.');
+					message.reply('I\'ve connected successfully. Use $radio or $play (url) to make me sing.');
 				})
 				.catch(console.log);
 		} else {
-			msg.reply('You need to join a Voice channel first, silly.');
+			message.reply('You need to join a Voice channel first, silly.');
 		}
 		break;
 	case "$radio":
-		if (msg.member.voiceChannel) {
+		if (message.member.voiceChannel) {
 			// Add Radio Feature
 		} else {
-			msg.reply('Uh.. That\'s not supposed to happen');
+			message.reply('Uh.. That\'s not supposed to happen');
 		}
 		break;
 	case "$stop":
@@ -92,7 +92,7 @@ switch(command) {
 		break;
 	case "$google":
 		let query = args[0];
-		msg.reply({embed: {
+		message.reply({embed: {
 			color: 3447003,
 			title: "Your Search",
 			url: "https://www.google.com/search?q=${query}",
@@ -106,10 +106,10 @@ switch(command) {
 		break;
 	case "$logs":
 		// Add Identifier for the msg's channel topic
-		// if(TextChannel.topic === "logs-miku" => {
-		//	msg.reply('Alrighty! Logs will be sent right here for your reading purposes.');
+		// if(message.TextChannel.topic === "logs-miku" => {
+		//	message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
 		// } else {		
-		//	msg.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
+		//	message.reply('You\'ll need to set the topic to this channel to: ``` logs-miku ``` for this to work.');
 		// }
 		break;
 };
