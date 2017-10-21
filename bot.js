@@ -17,10 +17,7 @@ client.on('ready', () => {
 	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 });
 
-switch(command) {
-	
-	if(!message.content.startsWith(prefix) || message.author.bot) return;
-	
+switch(command) {	
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
