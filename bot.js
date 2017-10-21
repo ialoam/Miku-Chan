@@ -79,7 +79,6 @@ switch(command) {
 		} else {
 			msg.reply('You need to join a Voice channel first, silly.');
 		}
-		}
 		break;
 	case "$radio":
 		if (msg.member.voiceChannel) {
