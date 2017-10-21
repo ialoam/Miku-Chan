@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { ShardingManager } = require("discord.js");
+const connection = require("ffmpeg-binaries");
 const manager = new ShardingManager('bot.js', { totalShards: 3});
 const dispatcher = connection.playArbitraryInput('http://s37.myradiostream.com:9902/listen.pls');
 const command = args.shift().toLowerCase;
