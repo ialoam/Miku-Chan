@@ -15,7 +15,7 @@ client.on('ready', () => {
 	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 });
 
-client.on('message', () =>{
+client.on('message', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 switch(command) {
