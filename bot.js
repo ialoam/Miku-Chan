@@ -3,7 +3,7 @@ const { ShardingManager } = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
-const manager = new ShardingManager('bot.js', { totalShards: 3 });
+const manager = new ShardingManager('bot.js', { totalShards: 2 });
 const prefix = config.prefix;
 
 client.on('ready', () => {
