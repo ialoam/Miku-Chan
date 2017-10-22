@@ -5,8 +5,6 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const manager = new ShardingManager('bot.js', { totalShards: 3 });
 const prefix = config.prefix
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -18,6 +16,8 @@ client.on('ready', () => {
 });
 
 switch(command) {	
+	const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
@@ -115,10 +115,10 @@ switch(command) {
 		// Add Identifier for the msg's channel topic
 		// if(message.TextChannel.topic === "logs-miku" => {
 		//	message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
-		// } else {		
+		// } else {
 		//	message.reply('You\'ll need to set the topic to this channel to: ***_`` logs-miku ```_*** for this to work.');
 		// }
 		break;
 };
-		
+
 client.login(config.token);
