@@ -4,9 +4,7 @@ const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
 const manager = new ShardingManager('bot.js', { totalShards: 3 });
-const prefix = config.prefix
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
+const prefix = config.prefix;
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -16,7 +14,10 @@ client.on('ready', () => {
 	manager.spawn();
 	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 });
+
 client.on('message', () =>{
+	const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
 switch(command) {
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
