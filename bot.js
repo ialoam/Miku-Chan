@@ -3,7 +3,7 @@ const { ShardingManager } = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
-const manager = new ShardingManager('bot.js', { totalShards: 2 });
+const manager = new ShardingManager('bot.js', { totalShards: 1 });
 const prefix = config.prefix;
 
 client.on('ready', () => {
@@ -13,6 +13,8 @@ client.on('ready', () => {
 	console.log('-------');
 	manager.spawn();
 	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
+	console.log('-------');
+	break;
 });
 
 client.on('message', message => {
