@@ -16,8 +16,8 @@ client.on('ready', () => {
 });
 
 switch(command) {
-	let args = message.content.slice(prefix.length).trim().split(/ +/g);
-	let command = args.shift().toLowerCase();
+	var args = message.content.slice(prefix.length).trim().split(/ +/g);
+	var command = args.shift().toLowerCase();
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
