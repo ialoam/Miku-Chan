@@ -3,16 +3,12 @@ const { ShardingManager } = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
-const manager = new ShardingManager('bot.js', { totalShards: 1 });
 const prefix = config.prefix;
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
 	client.user.setGame('Stufz. Do $cmds');
 	console.log('Presence Changed.');
-	console.log('-------');
-	manager.spawn();
-	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 	console.log('-------');
 	break;
 });
