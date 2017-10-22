@@ -15,9 +15,9 @@ client.on('ready', () => {
 	manager.on('launch', shard => console.log('Successfully Launched Shard ${shard.id}'));
 });
 
-switch(command) {	
-	const args = message.content.slice(prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+switch(command) {
+	let args = message.content.slice(prefix.length).trim().split(/ +/g);
+	let command = args.shift().toLowerCase();
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
