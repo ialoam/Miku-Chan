@@ -33,7 +33,7 @@ switch(command) {
 		message.reply('Ha ha. Very funny. ***(not)***.');
 		break;
 	case "fetchrole":
-		if(msg.member.roles.has('366256286922178560')) {
+		if(message.member.roles.has('366256286922178560')) {
 			message.reply('Sorry, you already have the needed rank.');
 		} else {
 			member.addRole('366256286922178560').catch(console.error);
