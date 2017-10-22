@@ -10,7 +10,6 @@ client.on('ready', () => {
 	client.user.setGame('Stufz. Do $cmds');
 	console.log('Presence Changed.');
 	console.log('-------');
-	break;
 });
 
 client.on('message', message => {
