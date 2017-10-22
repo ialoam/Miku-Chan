@@ -120,5 +120,5 @@ switch(command) {
 		// }
 		break;
 };
-}
+});
 client.login(config.token);
