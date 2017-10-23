@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Incrested/Miku-Chan/issues"
   },
-  "homepage": "https://github.com/Incrested/Miku-Chan"
+  "homepage": "https://github.com/Incrested/Miku-Chan",
   "engines": {
 	"node": "6.11.4"
   }	
