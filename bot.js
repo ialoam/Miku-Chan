@@ -20,6 +20,7 @@ switch(command) {
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
 		fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+	break;
 	case "ping":
 		message.reply('Your expecting me to say Pong, right?');
 	break;
@@ -27,7 +28,7 @@ switch(command) {
 		message.reply('Dong!');
 	break;
 	case "cmds":
-		message.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me');
+		message.reply('Visit the documentation on our site for more info: http://docs.mikuchan.me/commands');
 		break;
 	case "icup":
 		message.reply('Ha ha. Very funny. ***(not)***.');
