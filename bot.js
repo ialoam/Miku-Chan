@@ -12,7 +12,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if(!message.content.startwith(prefix) || message.author.bot) return;
+	if(!message.content.startswith(prefix) || message.author.bot) return;
 	
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
