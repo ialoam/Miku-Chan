@@ -5,6 +5,11 @@
 	<title> Miku-Chan's Latest Builds </title>
 	<link>https://github.com/Incrested/Miku-Chan/releases/latest</link>
 	<description> Download the Latest Builds Here</description>
+	<item>
+		<title> Miku-Chan Discord Webhook Test </title>
+		<link>https://ifttt.com</link>
+		<description>Just a Little Test</description>
+	</item>
 </channel>
 </rss>
 	
