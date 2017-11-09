@@ -3,6 +3,11 @@ const fs = require("fs");
 const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = config.prefix;
+const newusers = [];
+const guild = member.guild;
+const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
+
+var joinlogging = false;
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -11,6 +16,23 @@ client.on('ready', () => {
 	console.log('-------');
 });
 
+client.on('guildMemberAdd', (member) => {
+	if(joinlogging = true) {
+		if(!newUsers[guild.id]) newUsers.[guild.id] = new Discord.Collection;
+		newUsers[guild.id].set(member.id, member.user);
+		if (newUsers[guild.id].size > 10) {
+    			guild.channels.get(guild.id).send("Welcome our new users!\n" + userlist);
+    			newUsers[guild.id].clear();
+  		}
+	}
+});
+	  
+client.on('guildMemberRemove', (member) => {
+	if(joinlogging = true) {
+		if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
+	}
+});
+	
 client.on('message', message => {
 	if(!message.content.startswith(prefix) || message.author.bot) return;
 	
@@ -112,13 +134,13 @@ switch(command) {
 			},
 		}});
 		break;
-	case "logs":
-		// Add Identifier for the msg's channel topic
-		// if(message.Channel.TextChannel.topic === "logs-miku" => {
-		//	message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
-		// } else {
-		//	message.reply('You\'ll need to set the topic to this channel to: ***_`` logs-miku ```_*** for this to work.');
-		// }
+	case "joinlogs":
+		if(message.channel.TextChannel.topic === "joinlogs-miku" => {
+			message.reply('Alrighty! Logs will be sent right here for your reading purposes.');
+			joinloggging = true;
+		} else {
+			message.reply('You\'ll need to set the topic to this channel to: ***_`` logs-miku ```_*** for this to work.');
+		}
 		break;
 };
 });
