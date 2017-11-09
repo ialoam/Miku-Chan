@@ -40,6 +40,12 @@ client.on('message', message => {
 	const command = args.shift().toLowerCase();
 	
 switch(command) {
+	case "memes":
+		message.channel.createWebhook("Miku-Chan", "https://mikuchan.me/web-icon.png")
+		.then(webhook => webhook.edit("Miku-Chan", "https://mikuchan.me/web-icon.png")
+		.then(wb => message.author.send(`Take the Webhook URL and put it in the IFTTT recipe below: https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`)).catch(console.error))
+		.then(message.author.send("https://ifttt.com/applets/64900568d-the-daily-memer-integration-for-miku-chan");
+	break;
 	case "setprefix":
 		let newPrefix = message.content.split(" ").slice(1, 2)[0];
 		config.prefix = newPrefix;
