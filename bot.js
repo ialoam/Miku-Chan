@@ -131,7 +131,7 @@ switch(command) {
 		message.reply({embed: {
 			color: 3447003,
 			title: "Your Search",
-			url: "https://www.google.com/search?q=${query}",
+			url: `https://www.google.com/search?q=${query}`,
 			description: "Look at your Search Query via Google.",
 			timestamp: new Date(),
 			footer: {
