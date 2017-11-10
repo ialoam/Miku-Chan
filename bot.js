@@ -148,6 +148,34 @@ switch(command) {
 			message.reply('You\'ll need to set the topic to this channel to: ***_`` logs-miku ```_*** for this to work.');
 		}
 		break;
-};
+	case "version":
+		let version = args[0];
+		if(version === "v1") {
+			message.reply({embed: {
+				color: 3447003,
+				title: "Version 1",
+				url: "https://github.com/Incrested/Miku-Chan/releases/tag/1.0",
+				description: "Download and Host Version 1 with this Source",
+				timestamp: new Date(),
+				footer: {
+					icon_url: client.user.avatarURL,
+					text: "Powered by GitHub"
+				},
+			}});
+		}
+		if(!version === "v1") {
+			message.reply({embed: {
+				color: 3447003,
+				title: `Build ${version}`,
+				url: `https://raw.githubusercontent.com/Incrested/Miku-Chan/${version}/bot.js`,
+				description: `Download and Host the ${version} build.`,
+				timestamp: new Date(),
+				footer: {
+					icon_url: client.user.avatarURL,
+					text: "Powered by GitHub"
+				},
+			}});
+		}
+		break;
 });
 client.login(config.token);
