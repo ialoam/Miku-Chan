@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
+const yt = require("ytdl-core");
 const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = config.prefix;
@@ -123,9 +124,61 @@ switch(command) {
 		}
 		break;
 	case "stop":
-		// Add Stoping Feature
-		// Add Voice Leaving Feature
+		queue[message.guild.id].playing = false;
+		message.member.voiceChannel.leave();
 		break;
+	case "play":
+		if(queue[message.guild.id] === undefined) return message.channel.sendMesssage(`Add some songs to the queue first using ${config.prefix}add`);
+		if(!message.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
+		if(queue[message.guild.id].playing) return message.channel.sendMessage('I\'m already streaming music to you. Find a better use of me later.');
+		let dispatcher;
+		queue[message.guild.id].playing = true;
+		(function play(song) {
+			if(song === undefined) return message.channel.sendMessage('Queue is kind of empty. Fix that dude.').then(() => {
+				queue[message.guild.id].playing = false;
+				message.member.voiceChannel.leave();
+			});
+			message.channel.sendMessage(`Playing: ***${song.title}*** as requested by ***${song.requester}***`);
+			dispatcher = message.guild.voiceConnection.playStream(yt(song.url { audioonly: true }), { passes: tokens.passes });
+			let collector = message.channel.createCollector(m => m);
+			collector.on('message', m => {
+				if (m.content.startsWith(config.prefix + 'pause')) {
+					msg.channel.sendMessage('Paused Song.').then(() => {dispatcher.pause();});
+				} else if (m.content.startsWith(config.prefix + 'resume') {
+					message.channel.sendMessage('Resumed Song.').then(() => {dispatcher.resume();});
+				} else if (m.content.startsWith(config.prefix + 'skip') {
+					message.channel.sendMessage('Skipped Song.').then(() => {dispatcher.end();});
+				} else if (m.content.startsWith(config.prefix + 'time') {
+					message.channel.sendMessage(`Time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000)} : {$(Math.floor((dispatcher.time % 60000)/1000)}`);
+				}
+			});
+			dispatcher.on('end', () => {
+				collector.stop();
+				play(queue[message.guild.id].songs.shift());
+			});
+			dispatcher.on('error', (err) => {
+				return message.channel.sendMessage('Umm. We\'ve got an issue.').then(() => {
+					collector.stop();
+					play(queue[message.guild.id].songs.shift());
+				});
+			});
+		})(queue[message.guild.id]songs.shift());
+		break;
+	case "queue":
+		if(queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add songs to the queue using ${config.prefix}add`);
+		let tosend = [];
+		queue[message.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song..title} - Requested by: ${song.requester}`);});
+		msg.channel.sendMessage(`__**${message.guild.name}'s Music Queue:**__ Currently **${tosend.length}** queued ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
+		break;
+	case "add": 
+		let url = message.content.split(' ')[1];
+		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video URL or ID after ${config.prefix}add`);
+		yt.getInfo(url, (err, info) => {
+			if(err) return message.channel.sendMessage('Invalid YouTube URL/ID: ' + err);
+			if(!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[msg.guild.id].songs = [];
+			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
+			message.channel.sendMessage(`Added ***${info.title}*** to the queue.`);
+		});
 	case "google":
 		let query = args[0];
 		message.reply({embed: {
@@ -177,5 +230,13 @@ switch(command) {
 			}});
 		}
 		break;
+	case "reboot":
+		if(message.author.id == config.ownerID) {
+			process.exit();
+		} else if (message.author.id == config.ownerID1) {
+			process.exit();
+		} else {
+			message.reply('Heh, nice try douche. I only listen to my creators here.');
+		}
 });
 client.login(config.token);
