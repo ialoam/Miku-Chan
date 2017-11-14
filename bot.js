@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', (member) => {
 	if(joinlogging = true) {
-		if(!newUsers[guild.id]) newUsers.[guild.id] = new Discord.Collection;
+		if(!newUsers[guild.id]) newUsers.guild.id = new Discord.Collection;
 		newUsers[guild.id].set(member.id, member.user);
 		if (newUsers[guild.id].size > 10) {
     			guild.channels.get(guild.id).send("Welcome our new users!\n" + userlist);
