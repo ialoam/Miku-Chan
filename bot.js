@@ -250,6 +250,94 @@ client.on('message', message => {
             users[message.author.username] = index;
 
             index++;
+		break;
+		case "ap":
+			if (typeof users[userName] == 'undefined') {
+                message.reply("You dont have a game request");
+                return;
+            }
+
+            let gameId = users[userName];
+            let game = games[gameId];
+
+            if (game.requestedFrom.username != userName && !games[gameId].started) {
+                games[gameId].started = true;
+
+                sendMessageToUser(games[gameId].requestedFrom, userName + " has accepted our game request. He starts the game");
+                message.reply("Game begings Type !pl [A-C][1-3]\n**[A-C]** horizontal\n**[1-3]** vertical.\nExample A1 is top left");
+            } else {
+                message.reply("The rival must accept you faggot! :wink:");
+                return;
+            }
+		break;
+		case "pl":
+			let place = message.content.replace("!pl ", "").toUpperCase();
+
+            if (typeof users[userName] == 'undefined') {
+                message.reply("You don\'t have a game request");
+                return;
+            }
+
+            let gameId = users[userName];
+
+            if (games[gameId].placeUser.username != userName) {
+                message.reply("The rival plays next");
+                return;
+            }
+
+            if (checkPlace(gameId, place)) {
+                let nextPlayer = (games[gameId].requestedFrom.username == userName ? games[gameId].rivialUser : games[gameId].requestedFrom);
+                games[gameId].grid[place] = (games[gameId].requestedFrom.username == userName) ? "O" : "X";
+                games[gameId].placeUser = nextPlayer;
+                message.reply("The rival plays now");
+                sendMessageToUser(nextPlayer, "You can play now.");
+                sendResult(gameId);
+
+                if (Object.keys(games[gameId].grid).length == 9) {
+                    delete users[games[gameId].requestedFrom.username];
+                    delete users[games[gameId].rivialUser.username];
+                    delete games[gameId];
+
+                    sendMessageToUser(nextPlayer, "Game finished. All fields are used");
+                    message.reply("Game finished. All fields are used");
+                } else {
+                    var winner = hasGameWinner(games[gameId].grid);
+
+                    if (winner != "") {
+                        var winnerName = (winner == "O") ? games[gameId].requestedFrom.username : games[gameId].rivialUser.username;
+
+                        delete users[games[gameId].requestedFrom.username];
+                        delete users[games[gameId].rivialUser.username];
+                        delete games[gameId];
+
+                        sendMessageToUser(nextPlayer, "Game finished. " + winnerName + " has won");
+                        message.reply("Game finished. " + winnerName + " has won");
+                    }
+                }
+            } else {
+                message.reply("Wrong input value or the place is used");
+            }
+		break;
+		case "end":
+            if (typeof users[userName] == 'undefined') {
+                message.reply("You dont have a game request");
+                return;
+            }
+
+            let gameId = users[userName];
+
+            if (Object.keys(games[gameId].grid).length >= 3) {
+                message.reply("You cant end the game, if 3 or more fields are used");
+                return;
+            }
+
+            sendMessageToUser(games[gameId].requestedFrom, "Game has been closed from " + userName);
+            sendMessageToUser(games[gameId].rivialUser, "Game has been closed from " + userName);
+
+            delete users[games[gameId].requestedFrom.username];
+            delete users[games[gameId].rivialUser.username];
+            delete games[gameId];
+		break;
 		case "play":
 			if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
 			if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
