@@ -9,13 +9,6 @@ or
 
 > Visit our site (coming soon) to have a custom experience (server registration, custom commands, etc.)
 
-For Music:
-> Use the link [here](https://discordapp.com/oauth2/authorize?client_id=379785551764652033&scope=bot&permissions=66321471&response_type=code&redirect_uri=https://mikuchan.me/thanks.html) to invite via Discord
-
-or
-
-> Visit our Site (coming soon) to have a custom experience (server registration, custom commands, etc.)
-
 ### Support
 There are two support methods:
 > Use the link [here](https://discord.gg/MaK7BtW) to join Miku's Cave on Discord and ask the [@]Helpers for help in [#]support.
