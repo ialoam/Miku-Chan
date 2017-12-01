@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const gd = require('node-gd');
 const fs = require("fs");
 const yt = require("ytdl-core");
 const config = require("./config.json");
@@ -6,8 +7,168 @@ const client = new Discord.Client();
 const prefix = config.prefix;
 const newusers = [];
 
+const regex = /[ABC][123]/g;
+let index = 0;
+let users = {};
+let lastStartedGames = {};
+let games = {};
 var joinlogging = false;
 let queue = {};
+
+if(!fs.existsSync("./archiv")) {
+	fs.mkdir("./archiv");
+}
+setInterval(function () {
+	lastStartedGames = {};
+}, 30000);
+
+function drawField(gameId, fieldData) {
+	var img = gd.createSync(300, 300);
+	var color0 = img.colorAllocate(255,255,255);
+	var black = img.colorAllocate(0,0,0);
+	img.line(100,0,100,300,black);
+	img.line(200,0,200,300,black);
+	img.line(0,100,300,100,black);
+	img.line(0,200,300,200,black);
+	Object.keys(fieldData).forEach(function(key) {
+		var value = fieldData[key]'
+		var firstOffset = 0;
+		if(key.substr(0,1)=='A') {
+			firstOffset = 1;
+		} else if(key.substr(0,1) =='B') {
+			firstOffset = 2;
+		} else {
+			firstOffset = 3;
+		}
+		var secondOffset = arseInt(key.subtr(1,1));
+		if(value=="0") {
+			img.arc(40+10+((firstOffset *100) - 100), 40+10+((secondOffset * 100) - 100), 80, 80, 0, 360, black);
+		} else {
+            		img.line(10 + ((firstOffset * 100) - 100), 10 + ((secondOffset * 100) - 100), 90 + ((firstOffset * 100) - 100), 90 + ((secondOffset * 100) - 100), black);
+            		img.line(10 + ((firstOffset * 100) - 100), 90 + ((secondOffset * 100) - 100), 90 + ((firstOffset * 100) - 100), 10 + ((secondOffset * 100) - 100), black);
+		}
+	});
+	img.saveJpeg('./' + gameId + '.png');
+	img.destroy();
+	return './' + gameId + '.png';
+}
+
+function checkPlace(index, place) {
+	if(place.length != 2) {
+		return false;
+	}
+	var m;
+	var m2 = null;
+	while((m = regex.exec(place)) !== null) {
+		if(m.index === regex.lastIndex) {
+			reg.lastIndex++;
+		}
+		m2 = m;
+	}
+	if(m2==null) {
+		return false;
+	}
+	return typeof games[index].grid[place] == 'undefined';
+}
+
+function hasGameWinner(field) {
+    let types = ["O", "X"];
+    let intToChar = {1: "A", 2: "B", 3: "C"};
+    var i = 1;
+    var k = 1;
+    var result = "";
+
+    types.forEach(function (type) {
+        if (result != "") {
+            return;
+        }
+
+        for (i = 1; i < 4; i++) {
+            if (result != "") {
+                break;
+            }
+
+            var usedCount = 0;
+            for (k = 1; k < 4; k++) {
+                var key = intToChar[i].toString() + k.toString();
+
+                if (typeof field[key] == "undefined") {
+                    continue;
+                }
+
+                if (field[key] == type) {
+                    usedCount++;
+                }
+            }
+
+            if (usedCount == 3) {
+                result = type;
+                break;
+            }
+        }
+
+        for (i = 1; i < 4; i++) {
+            if (result != "") {
+                break;
+            }
+
+            usedCount = 0;
+            for (k = 1; k < 4; k++) {
+                key = intToChar[k].toString() + i.toString();
+
+                if (typeof field[key] == "undefined") {
+                    continue;
+                }
+
+                if (field[key] == type) {
+                    usedCount++;
+                }
+            }
+
+            if (usedCount == 3) {
+                result = type;
+                break;
+            }
+        }
+
+        var extraFields = [
+            ["A1", "B2", "C3"],
+            ["A3", "B2", "C1"]
+        ];
+
+        extraFields.forEach(function (item) {
+            var usedCount = 0;
+            item.forEach(function (pos) {
+                if (typeof field[key] == "undefined") {
+                    return;
+                }
+
+                if (field[pos] == type) {
+                    usedCount++;
+                }
+            });
+
+            if (usedCount == 3) {
+               result = type;
+            }
+        });
+    });
+
+    return result;
+}
+
+function sendResult(gameId) {
+    var file = drawField(gameId, games[gameId].grid);
+
+    if (Object.keys(games[gameId].grid).length == 9 || hasGameWinner(games[gameId].grid).length > 0) {
+        var date = new Date();
+        file = "./archiv/" + games[gameId].requestedFrom.username + "-" + games[gameId].rivialUser.username + '-' + date.getTime().toString() + ".jpeg";
+        fs.renameSync("./" + gameId + ".png", file);
+    }
+
+    games[gameId].requestedFrom.sendFile(file);
+    games[gameId].rivialUser.sendFile(file);
+}
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
@@ -42,6 +203,53 @@ client.on('message', message => {
 	const command = args.shift().toLowerCase();
 	
 	switch(command) {
+		case "ttt":
+			let playerName = message.content.replace("!ttt ", "");
+
+            if (typeof users[playerName] != 'undefined') {
+                message.reply("The player is already in a game");
+                return;
+            }
+
+            if (playerName == "TicTacToe") {
+                message.reply("Meh! you were to easy for me :wink:");
+                return;
+            }
+
+            if (!client.users.exists('username', playerName)) {
+                message.reply("Player could not found");
+                return;
+            }
+
+            if (playerName == message.author.username) {
+                message.reply("Are you stupid? You cant play against you");
+                return;
+            }
+
+            if (typeof lastStartedGames[userName] != 'undefined') {
+                message.reply("You can start every 30 seconds a game");
+                return;
+            }
+
+            lastStartedGames[userName] = true;
+
+
+            let nextPlayer = client.users.find("username", playerName);
+            sendMessageToUser(nextPlayer, message.author.username + " has invited you to play a TicTacToe. Type ``!ap`` to accept the request");
+
+            message.reply("Request to player was sended. You can end the game with ``!end``");
+
+            games[index] = {
+                grid: {},
+                requestedFrom: message.author,
+                rivialUser: nextPlayer,
+                placeUser: nextPlayer,
+                started: false
+            };
+            users[playerName] = index;
+            users[message.author.username] = index;
+
+            index++;
 		case "play":
 			if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
 			if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
