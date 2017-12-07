@@ -31,7 +31,7 @@ function drawField(gameId, fieldData) {
 	img.line(0,100,300,100,black);
 	img.line(0,200,300,200,black);
 	Object.keys(fieldData).forEach(function(key) {
-		var value = fieldData[key]'
+		var value = fieldData[key];
 		var firstOffset = 0;
 		if(key.substr(0,1)=='A') {
 			firstOffset = 1;
