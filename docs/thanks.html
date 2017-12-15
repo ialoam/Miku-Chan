@@ -11,10 +11,63 @@
 			}
 			setTimeout('Redirect()', 5000);
 		</script>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto');
+			#center {
+				margin: 0 auto;
+				width: 700px;
+			}
+			#cover {
+				padding: 30px;
+			}
+			button {
+				border: 2px solid #7539dd;
+				border-radius: 10px;
+				width: 300px;
+				height: 60px;
+				background-color: #752ef2;
+				color: #ffffff;
+				cursor: pointer;
+				text-align: center;
+				text-decoration: none;
+				font-family: 'Roboto', sans-serif;
+				-o-transition: color .5s linear;
+  				-ms-transition: color .5s linear;
+  				-moz-transition: color .5s linear;
+ 				-webkit-transition: color .5s linear;
+  				transition: color .5s linear;
+			}
+			button:hover {
+				border: 2px solid #752ef2;
+				background-color: #752ef2;
+			}
+			p {
+				font-size: 32px;	
+				text-align: center;
+				font-family: 'Roboto', sans-serif;
+			}
+			#p {
+				font-size: 16px;
+				text-align: center;
+				font-family: 'Roboto', sans-serif;
+			}
+			a {
+				text-decoration: none;
+				cursor: pointer;
+			}
+			body {
+				background: #752ef2;
+				color: #ffffff;
+			}
+		</style>
 	</head>
 	<body>
-		<h3> Thanks for using Miku-Chan! </h3>
-		<h4> You will be redirected to the homepage in 5 seconds. </h4>
-		<a href="http://mikuchan.me" title="Redirect Failed? Click Here."><button type="button">Still Here? Click Here to Redirect.</button></a>
+		<div id="cover">
+			<div id="center">
+				<p> Thanks for using Miku-Chan! </p>
+				<p id="p"> You will be redirected to the homepage in 5 seconds. </p>
+				<a href="http://mikuchan.me" title="Redirect Failed? Click Here."><button type="button">Still Here? Click Here to Redirect.</button></a>
+			</div>
+		</div>		
 	</body>
-<html>
+</html>
