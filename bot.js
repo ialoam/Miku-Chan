@@ -91,7 +91,7 @@ client.on('message', message => {
 	}
 	if(message == "$cmds") {
 		// Ready for V2
-		message.channel.send('Visit the documentation on our site for more info: https://github.com/Incrested/Miku-Chan/wiki/Commands');
+		message.channel.send('Visit the documentation on our site for more info: https://github.com/Miku-Chan-Devs/Miku-Chan/wiki/Commands');
 	}
 	if(message == "$icup") {
 		// Ready for V2
@@ -152,7 +152,7 @@ client.on('message', message => {
 			message.channel.send({embed: {
 				color: 3447003,
 				title: "Version 1",
-				url: "https://github.com/Incrested/Miku-Chan/releases/tag/1.0",
+				url: "https://github.com/Miku-Chan-Devs/Miku-Chan/releases/tag/1.0",
 				description: "Download and Host Version 1 with this Source",
 				timestamp: new Date(),
 				footer: {
@@ -165,7 +165,7 @@ client.on('message', message => {
 			message.channel.send({embed: {
 				color: 3447003,
 				title: `Build ${version}`,
-				url: `https://raw.githubusercontent.com/Incrested/Miku-Chan/${version}/bot.js`,
+				url: `https://raw.githubusercontent.com/Miku-Chan-Devs/Miku-Chan/${version}/bot.js`,
 				description: `Download and Host the ${version} build.`,
 				timestamp: new Date(),
 				footer: {
