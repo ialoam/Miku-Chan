@@ -1,0 +1,8 @@
+{
+	"token" : "client-token",
+	"prefix" : "$",
+	"ownerID" : "your-user-id-here",
+	"ownerID1" : "co-owner-id-here",
+	"passes" : "1",
+	"setRole" : ""
+}
