@@ -1,6 +1,6 @@
-# Miku-Chan
 <div align="center">
-	<p>
+	<h2> Miku-Chan </h2>
+	<p>	
     <a href="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master"><img src="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master.svg?style=svg" /></a>
 	</p>
 </div>
