@@ -1,4 +1,10 @@
 # Miku-Chan
+<div align="center">
+	<p>
+    <a href="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master"><img src="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master.svg?style=svg" /></a>
+	</p>
+</div>
+
 Miku Chan is a lightweight Discord bot based off of JavaScript, made to increase the speed of your workflow and maximize autonomy. By using the power of The Clean Web and other sponsors, we're able to deliver a fast and brilliant experience to all.
 
 ### Invitation
