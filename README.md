@@ -1,7 +1,7 @@
 <div align="center">
 	<h2> Miku-Chan </h2>
 	<p>	
-    <a href="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master"><img src="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master.svg?style=svg" /></a>
+    <a href="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master"><img src="https://circleci.com/gh/Miku-Chan-Devs/Miku-Chan/tree/master.svg?style=svg" /></a><a href="https://discord.gg/MaK7BtW"><img src="https://discordapp.com/api/guilds/366247860502659084/embed.png" alt="Discord server" /></a>
 	</p>
 </div>
 
