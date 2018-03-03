@@ -32,7 +32,7 @@ client.on('message', message => {
 			{
 				name: "m!8ball",
 				value: "It's an 8ball..."
-			}
+			},
 			{
 				name: "m!help, m!h, m!cmds",
 				value: "See the commands that Miku-Chan understands"
