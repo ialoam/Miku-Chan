@@ -1,6 +1,6 @@
 {
 	"token": "insert-bot-token-here",
-	"prefix": "$",
+	"prefix": "m!",
 	"ownerID": "insert-your-user-id",
 	"ownerID1": "insert-co-owner-id",
 	"passes": "1"
