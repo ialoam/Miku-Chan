@@ -80,10 +80,6 @@ client.on('message', message => {
 			{
 				name: "m!play",
 				value: "Play a song from YouTube"
-			},
-			{
-				name: "m!purge",
-				value: "Delete a certain amount of messages (including the current one)"
 			}],
 			timestamp: new Date(),
 			footer: {
