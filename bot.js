@@ -7,16 +7,19 @@ const client = new Discord.Client();
 const prefix = config.prefix;
 const request = require('request');
 const rn = require('random-number');
+const tokenURL = 'https://cryptocoincharts.info/fast/secret-api/pricing.php?coin=grlc&apiKey=djde93dekd94jwowqpjfngn';
+const https = require('https');
 
 client.on('ready', () => {
 	console.log('Logged in as Miku-Chan!');
 	client.user.setGame('Use m!help');
 	console.log('Presence Changed.');
+	console.log('Using Version 1.1-rc. This may be edited than the original tag.');
 	console.log('-------');
 });
 
 client.on('message', message => {
-	
+
 	function help() {
 		// Clamp 2 commands to a line?
 		message.channel.send({embed: {
@@ -80,6 +83,10 @@ client.on('message', message => {
 			{
 				name: "m!play",
 				value: "Play a song from YouTube"
+			},
+			{
+				name: "m!crypto",
+				value: "Add a space and add the crypto abbreviation"
 			}],
 			timestamp: new Date(),
 			footer: {
@@ -88,7 +95,7 @@ client.on('message', message => {
 			}
 	}});
 }
-	
+
 	if(message == "m!play") {
 		// Ready for V2
 		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
@@ -159,7 +166,7 @@ client.on('message', message => {
 	if(message == "m!ping") {
 		// Ready for V2
 		var ping = new Date().getTime() - message.createdTimestamp + " ms";
-		message.channel.send("Pong! The last ping was " + client.ping + " ms.");  
+		message.channel.send("Pong! The last ping was " + client.ping + " ms.");
 	}
 	if(message == "m!ding") {
 		// Ready for V2
@@ -281,6 +288,25 @@ client.on('message', message => {
 		var responses = ["It is certain", "Without a doubt", "You may rely on it", "Most likely", "Yes", "Signs point to yes", "Better not tell you now", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
 		message.channel.send(":8ball: " + responses[Math.floor(Math.random() * (responses.length))]);
 	}
-
+  if(message == "m!crypto grlc") {
+		// Ready for V2
+		https.get(tokenURL, function (res) {
+            var body = '';
+            res.on('data', function (chunk) {
+                body += chunk;
+            });
+            res.on('end', function () {
+                var priceResponse = JSON.parse(body);
+                console.log("Got a response: ", priceResponse);
+                var pricePart = priceResponse.price_usd;
+                pricePart = parseInt(pricePart*100)/100.0;
+                price = "$"+pricePart + " USD";
+								message.channel.send("The price of Garlicoin (GRLC) is " + price + "$ per coin")
+                console.log("Set Price: ", price);
+            });
+        }).on('error', (e) => {
+            console.error(e);
+    });
+	}
 });
 client.login(config.token);
