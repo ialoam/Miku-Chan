@@ -19,3 +19,8 @@ or
 
 ### License
 Miku-Chan is licensed under GNU General Public License (Version 3). Please make sure you are using the application under its code of conduct.
+
+### Credits
+Made by Incrested and Ultra03/UltraMLGCode
+
+With code snippets from Nitro (Funnbot), GRLC Price Bot (GameFusion/Butterpool), and Tatsumaki (someone :P)
