@@ -1,7 +1,7 @@
 <div align="center">
 	<h2> Miku-Chan </h2>
 	<p>	
-    <a href="https://travis-ci.org/Miku-Chan-Devs/Miku-Chan"><img src="https://travis-ci.org/Miku-Chan-Devs/Miku-Chan.svg?branch=master" /></a><a href="https://discord.gg/MaK7BtW"><img src="https://discordapp.com/api/guilds/366247860502659084/embed.png" alt="Discord server" /></a>
+    <a class="badge-align" href="https://www.codacy.com/app/Incrested/Miku-Chan?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Miku-Chan-Devs/Miku-Chan&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/8d6c96634d3e4bc4b5bb0933ce383d46"/></a><a href="https://travis-ci.org/Miku-Chan-Devs/Miku-Chan"><img src="https://travis-ci.org/Miku-Chan-Devs/Miku-Chan.svg?branch=master" /></a><a href="https://discord.gg/MaK7BtW"><img src="https://discordapp.com/api/guilds/366247860502659084/embed.png" alt="Discord server" /></a>
 	</p>
 </div>
 
