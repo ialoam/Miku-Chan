@@ -3,7 +3,7 @@ node_js:
   - node
 cache:
   directories:
-    -node_modules
+    - node_modules
 notifications:
   email:
     on_success: always
