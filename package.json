@@ -1,6 +1,7 @@
 {
   "name": "Miku-Chan",
   "version": "1.1.1",
+  "license": "GPL3",
   "description": "A JavaScript-Based Discord Bot Made to Increase your Workflow and Autonomy",
   "main": "bot.js",
   "dependencies": {
