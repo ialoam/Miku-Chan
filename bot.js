@@ -7,7 +7,6 @@ const client = new Discord.Client();
 const prefix = config.prefix;
 const request = require('request');
 const rn = require('random-number');
-const tokenURL = 'https://cryptocoincharts.info/fast/secret-api/pricing.php?coin=grlc&apiKey=djde93dekd94jwowqpjfngn';
 const https = require('https');
 
 client.on('ready', () => {
@@ -290,6 +289,7 @@ client.on('message', message => {
 	}
   if(message == "m!crypto grlc") {
 		// Ready for V2
+		var tokenURL = 'https://cryptocoincharts.info/fast/secret-api/pricing.php?coin=grlc&apiKey=djde93dekd94jwowqpjfngn';
 		https.get(tokenURL, function (res) {
             var body = '';
             res.on('data', function (chunk) {
@@ -300,13 +300,103 @@ client.on('message', message => {
                 console.log("Got a response: ", priceResponse);
                 var pricePart = priceResponse.price_usd;
                 pricePart = parseInt(pricePart*100)/100.0;
-                price = "$"+pricePart + " USD";
-								message.channel.send("The price of Garlicoin (GRLC) is " + price + "$ per coin")
+                price = pricePart + "$ USD";
+								message.channel.send("The price of Garlicoin (GRLC) is " + price + " per coin")
                 console.log("Set Price: ", price);
             });
         }).on('error', (e) => {
             console.error(e);
-    });
-	}
+		});
+  }
+  if(message == "m!crypto btc") {
+	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD';
+	  https.get(tokenURL, function (res) {
+             var body = '';
+             res.on('data', function (chunk) {
+                 body += chunk;
+             });
+             res.on('end', function () {
+                 var priceResponse = JSON.parse(body);
+                 console.log("Got a response: ", priceResponse);
+                 var pricePart = priceResponse.price_usd;
+	  						message.channel.send("The price of Bitcoin (BTC) is " + pricePart + "$ per coin")
+                 console.log("Set Price: ", pricePart);
+             });
+         }).on('error', (e) => {
+             console.error(e);
+	  });
+  }
+  if(message == "m!crypto eth") {
+	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=USD';
+	  https.get(tokenURL, function (res) {
+             var body = '';
+             res.on('data', function (chunk) {
+                 body += chunk;
+             });
+             res.on('end', function () {
+                 var priceResponse = JSON.parse(body);
+                 console.log("Got a response: ", priceResponse);
+                 var pricePart = priceResponse.price_usd;
+	  						message.channel.send("The price of Ethereum (ETH) is " + pricePart + "$ per coin")
+                 console.log("Set Price: ", pricePart);
+             });
+         }).on('error', (e) => {
+             console.error(e);
+	  });
+  }
+  if(message == "m!crypto ltc") {
+	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=USD';
+	  https.get(tokenURL, function (res) {
+             var body = '';
+             res.on('data', function (chunk) {
+                 body += chunk;
+             });
+             res.on('end', function () {
+                 var priceResponse = JSON.parse(body);
+                 console.log("Got a response: ", priceResponse);
+                 var pricePart = priceResponse.price_usd;
+	  						message.channel.send("The price of Litecoin (LTC) is " + pricePart + "$ per coin")
+                 console.log("Set Price: ", pricePart);
+             });
+         }).on('error', (e) => {
+             console.error(e);
+	  });
+   }
+   if(message == "m!crypto bch") {
+	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=USD';
+	  https.get(tokenURL, function (res) {
+             var body = '';
+             res.on('data', function (chunk) {
+                 body += chunk;
+             });
+             res.on('end', function () {
+                 var priceResponse = JSON.parse(body);
+                 console.log("Got a response: ", priceResponse);
+                 var pricePart = priceResponse.price_usd;
+	  						message.channel.send("The price of Bitcoin Cash (BCH) is " + pricePart + "$ per coin")
+                 console.log("Set Price: ", pricePart);
+             });
+         }).on('error', (e) => {
+             console.error(e);
+	  });
+   }
+   if(message == "m!crypto xrp") {
+	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/ripple/?convert=USD';
+	  https.get(tokenURL, function (res) {
+             var body = '';
+             res.on('data', function (chunk) {
+                 body += chunk;
+             });
+             res.on('end', function () {
+                 var priceResponse = JSON.parse(body);
+                 console.log("Got a response: ", priceResponse);
+                 var pricePart = priceResponse.price_usd;
+	  			 message.channel.send("The price of Ripple (XRP) is " + pricePart + "$ per coin")
+                 console.log("Set Price: ", pricePart);
+             });
+         }).on('error', (e) => {
+             console.error(e);
+	  });
+   }
 });
 client.login(config.token);
