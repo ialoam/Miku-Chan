@@ -9,7 +9,7 @@ Miku Chan is a lightweight Discord bot based off of JavaScript, made to increase
 
 ### Invitation
 There are two ways to invite our bot to your Discord server:
-> Use the link [here](https://discordapp.com/oauth2/authorize?client_id=365649918142054410&scope=bot&permissions=0) to visit the Discord Official Registration
+> Use the link [here](https://discordapp.com/oauth2/authorize?client_id=365649918142054410&permissions=2146958583&redirect_uri=https%3A%2F%2Fmikuchan.me%2Fthanks.html&scope=bot) to visit the Discord Official Registration
 
 or
 
