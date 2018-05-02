@@ -16,19 +16,27 @@ client.on("ready", () => {
 client.on("message", message => {
 			if(message === "$play") {
 				// Ready for V1
-				if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
-				if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
-				if (queue[msg.guild.id].playing) return msg.channel.sendMessage("Already playing music, idiot.");
+				if (queue[msg.guild.id] === undefined) {
+					msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
+				}
+				if (!msg.guild.voiceConnection) {
+					commands.join(msg).then(() => commands.play(msg));
+				}
+				if (queue[msg.guild.id].playing) { 
+					msg.channel.sendMessage("Already playing music, idiot.");
+				}
 				let dispatcher;
 				queue[msg.guild.id].playing = true;
 
 				console.log(queue);
 				(function play(song) {
 					console.log(song);
-					if (song === undefined) return msg.channel.sendMessage("The queue's empty, you know?").then(() => {
-						queue[msg.guild.id].playing = false;
-						msg.member.voiceChannel.leave();
-					});
+					if (song === undefined) {
+						msg.channel.sendMessage("The queue's empty, you know?").then(() => {
+							queue[msg.guild.id].playing = false;
+							msg.member.voiceChannel.leave();
+						});
+					}
 					msg.channel.sendMessage(`Playing ***${song.title}*** as requested by ***${song.requester}***`);
 					dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
 					let collector = msg.channel.createCollector(m => m);
