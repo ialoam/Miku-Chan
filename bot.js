@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const gd = require('node-gd');
+const gd = require("node-gd");
 const fs = require("fs");
 const yt = require("ytdl-core");
 const config = require("./config.json");
@@ -39,7 +39,7 @@ client.on('message', message => {
 							msg.channel.sendMessage('resumed').then(() => {dispatcher.resume();});
 						} else if (m.content.startsWith(config.prefix + 'skip')){
 							msg.channel.sendMessage('skipped').then(() => {dispatcher.end();});
-						} else if (m.content.startsWith(config.prefix + 'time')){
+						} else if (m.content.startsWith(config.prefix + "time")){
 							msg.channel.sendMessage(`time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
 						}
 					});
