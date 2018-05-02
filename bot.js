@@ -6,44 +6,44 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = config.prefix;
 
-client.on('ready', () => {
-	console.log('Logged in as Miku-Chan!');
-	client.user.setGame('Nothing. $cmds');
-	console.log('Presence Changed.');
-	console.log('-------');
+client.on("ready", () => {
+	console.log("Logged in as Miku-Chan!'";
+	client.user.setGame("Nothing. $cmds");
+	console.log("Presence Changed.");
+	console.log("-------");
 });
 
-client.on('message', message => {
-			if(message == "$play") {
+client.on("message", message => {
+			if(message === "$play") {
 				// Ready for V1
 				if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`I'm not a magician. Add some songs using ${config.prefix}add`);
 				if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
-				if (queue[msg.guild.id].playing) return msg.channel.sendMessage('Already playing music, idiot.');
+				if (queue[msg.guild.id].playing) return msg.channel.sendMessage("Already playing music, idiot.");
 				let dispatcher;
 				queue[msg.guild.id].playing = true;
 
 				console.log(queue);
 				(function play(song) {
 					console.log(song);
-					if (song === undefined) return msg.channel.sendMessage('The queue\'s empty, you know?').then(() => {
+					if (song === undefined) return msg.channel.sendMessage("The queue's empty, you know?").then(() => {
 						queue[msg.guild.id].playing = false;
 						msg.member.voiceChannel.leave();
 					});
 					msg.channel.sendMessage(`Playing ***${song.title}*** as requested by ***${song.requester}***`);
 					dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
 					let collector = msg.channel.createCollector(m => m);
-					collector.on('message', m => {
-						if (m.content.startsWith(config.prefix + 'pause')) {
-							msg.channel.sendMessage('paused').then(() => {dispatcher.pause();});
-						} else if (m.content.startsWith(config.prefix + 'resume')){
-							msg.channel.sendMessage('resumed').then(() => {dispatcher.resume();});
-						} else if (m.content.startsWith(config.prefix + 'skip')){
-							msg.channel.sendMessage('skipped').then(() => {dispatcher.end();});
+					collector.on("message", m => {
+						if (m.content.startsWith(config.prefix + "pause")) {
+							msg.channel.sendMessage("paused").then(() => {dispatcher.pause();});
+						} else if (m.content.startsWith(config.prefix + "resume")){
+							msg.channel.sendMessage("resumed").then(() => {dispatcher.resume();});
+						} else if (m.content.startsWith(config.prefix + "skip")){
+							msg.channel.sendMessage("skipped").then(() => {dispatcher.end();});
 						} else if (m.content.startsWith(config.prefix + "time")){
 							msg.channel.sendMessage(`time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
 						}
 					});
-					dispatcher.on('end', () => {
+					dispatcher.on("end", () => {
 						collector.stop();
 						play(queue[msg.guild.id].songs.shift());
 					});
