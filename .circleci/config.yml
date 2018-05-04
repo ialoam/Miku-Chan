@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install Dependencies
-        command: npm i -g eslint && npm i --save
+          name: Install Dependencies
+          command: npm i -g eslint && npm i --save
       - run:
-        name: ESLint Check
-        command: npm run lint
+          name: ESLint Check
+          command: npm run lint
