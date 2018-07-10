@@ -277,11 +277,13 @@ client.on('message', message => {
 	if(message == "m!botisdead") {
 		// Ready for V2
 		message.channel.send("If the bot is offline, visit http://status.mikuchan.me to find out when the bot comes back up again.");
-	}
-	if(message == "m!help") {
-		// Ready for V2
-		help();
-	}
+	}        if(message == "m!help") {
+282
+                // Ready for V2
+283
+                help();
+284
+        }
 	if(message == "m!8ball") {
 		// Ready for V2
 		var responses = ["It is certain", "Without a doubt", "You may rely on it", "Most likely", "Yes", "Signs point to yes", "Better not tell you now", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
