@@ -136,7 +136,7 @@ client.on('message', message => {
 			});
 		})(queue[msg.guild.id].songs.shift());
 	}
-	if(message == "m!join") {
+	else if(message == "m!join") {
 		// Ready for V2
 		return new Promise((resolve, reject) => {
 			const voiceChannel = msg.member.voiceChannel;
@@ -144,7 +144,7 @@ client.on('message', message => {
 			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
 		});
 	}
-	if(message == "m!add") {
+	else if(message == "m!add") {
 		// Ready for V2
 		let url = msg.content.split(' ')[1];
 		if (url == '' || url === undefined) return msg.channel.sendMessage(`You need a YouTube URL or ID after ${config.prefix}add`);
@@ -155,39 +155,39 @@ client.on('message', message => {
 			msg.channel.sendMessage(`Added ***${info.title}*** to the queue`);
 		});
 	}
-	if(message == "m!queue") {
+	else if(message == "m!queue") {
 		// Ready for V2
 		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`The queue\'s empty, you know? Fill her up using ${config.prefix}add`);
 		let tosend = [];
 		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ***${song.title}*** - Requested by: ***${song.requester}***`);});
 		msg.channel.sendMessage(`__**${msg.guild.name}'s Music Queue:**__ Currently ***${tosend.length}*** songs queued ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
 	}
-	if(message == "m!ping") {
+	else if(message == "m!ping") {
 		// Ready for V2
 		var ping = new Date().getTime() - message.createdTimestamp + " ms";
 		message.channel.send("Pong! The last ping was " + client.ping + " ms.");
 	}
-	if(message == "m!ding") {
+	else if(message == "m!ding") {
 		// Ready for V2
 		message.channel.send('Dong!');
 	}
-	if(message == "m!cmds") {
+	else if(message == "m!cmds") {
 		// Ready for V2
 		help();
 	}
-	if(message == "m!help") {
+	else if(message == "m!help") {
 		// Ready for V2
 		help();
 	}
-	if(message == "m!h") {
+	else if(message == "m!h") {
 		// Ready for V2
 		help();
 	}
-	if(message == "m!icup") {
+	else if(message == "m!icup") {
 		// Ready for V2
 		message.channel.send('Ha ha. Very funny. ***(not)***.');
 	}
-	if(message == "m!about") {
+	else if(message == "m!about") {
 		// Ready for V2
 		if (message.content === '$about') {
 			message.channel.send({embed: {
@@ -219,7 +219,7 @@ client.on('message', message => {
 			}});
 		}
 	}
-	if(message == "m!google") {
+	else if(message == "m!google") {
 		// Broken. Doesn't Crash Bot (to testing knowledge)
 		const args = message.content.slice(config.prefix).trim().split(/ +/g);
 		let query = args[0];
@@ -235,7 +235,7 @@ client.on('message', message => {
 			},
 		}});
 	}
-	if(message == "m!pocketmonster") {
+	else if(message == "m!pocketmonster") {
 		// Broken. Doesn't Crash Bot (to testing knowledge)
 		const args = message.content.slice(config.prefix).trim().split(/ + /g);
 		message.channel.send({embed: {
@@ -250,7 +250,7 @@ client.on('message', message => {
 		},
 		}});
 	}
-	if(message == "m!tf") {
+	else if(message == "m!tf") {
 		// Ready for V2
 		message.channel.send("(°-°)\\ ┬─┬").then(m => {
 			setTimeout(() => {
@@ -262,7 +262,7 @@ client.on('message', message => {
 			}, 500);
 		});
 	}
-	if(message == "m!uf") {
+	else if(message == "m!uf") {
 		// Ready for V2
 		message.channel.send("(╯°□°)╯  ︵  ┻━┻").then(m => {
 			setTimeout(() => {
@@ -274,7 +274,7 @@ client.on('message', message => {
 			}, 500);
 		});
 	}
-	if(message == "m!botisdead") {
+	else if(message == "m!botisdead") {
 		// Ready for V2
 		message.channel.send("If the bot is offline, visit http://status.mikuchan.me to find out when the bot comes back up again.");
 	}        if(message == "m!help") {
@@ -284,12 +284,12 @@ client.on('message', message => {
                 help();
 284
         }
-	if(message == "m!8ball") {
+	else if(message == "m!8ball") {
 		// Ready for V2
 		var responses = ["It is certain", "Without a doubt", "You may rely on it", "Most likely", "Yes", "Signs point to yes", "Better not tell you now", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
 		message.channel.send(":8ball: " + responses[Math.floor(Math.random() * (responses.length))]);
 	}
-  if(message == "m!crypto grlc") {
+  else if(message == "m!crypto grlc") {
 		// Ready for V2
 		var tokenURL = 'https://cryptocoincharts.info/fast/secret-api/pricing.php?coin=grlc&apiKey=djde93dekd94jwowqpjfngn';
 		https.get(tokenURL, function (res) {
@@ -310,7 +310,7 @@ client.on('message', message => {
             console.error(e);
 		});
   }
-  if(message == "m!crypto btc") {
+  else if(message == "m!crypto btc") {
 	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD';
 	  https.get(tokenURL, function (res) {
              var body = '';
@@ -328,7 +328,7 @@ client.on('message', message => {
              console.error(e);
 	  });
   }
-  if(message == "m!crypto eth") {
+  else if(message == "m!crypto eth") {
 	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=USD';
 	  https.get(tokenURL, function (res) {
              var body = '';
@@ -346,7 +346,7 @@ client.on('message', message => {
              console.error(e);
 	  });
   }
-  if(message == "m!crypto ltc") {
+ else if(message == "m!crypto ltc") {
 	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=USD';
 	  https.get(tokenURL, function (res) {
              var body = '';
@@ -363,8 +363,10 @@ client.on('message', message => {
          }).on('error', (e) => {
              console.error(e);
 	  });
-   }
-   if(message == "m!crypto bch") {
+   }else if(message == "m!ian"){
+	    message.channel.send("is the best!");
+	    }
+   else if(message == "m!crypto bch") {
 	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=USD';
 	  https.get(tokenURL, function (res) {
              var body = '';
@@ -382,7 +384,7 @@ client.on('message', message => {
              console.error(e);
 	  });
    }
-   if(message == "m!crypto xrp") {
+   else if(message == "m!crypto xrp") {
 	  var tokenURL = 'https://api.coinmarketcap.com/v1/ticker/ripple/?convert=USD';
 	  https.get(tokenURL, function (res) {
              var body = '';
